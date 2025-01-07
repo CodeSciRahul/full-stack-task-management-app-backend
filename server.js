@@ -4,6 +4,10 @@ import bodyParser from "body-parser";
 import dotenv from "dotenv"
 import connectDB from "./src/config/dbConfig.js";
 import properties from "./src/config/properties.js";
+import {protectRoute} from "./src/api/middlewares/protectedRoute.js"
+
+//different route
+import { authRoute } from "./src/api/router/auth.js";
 
 dotenv.config();
 
@@ -21,6 +25,9 @@ const port = Number(properties.PORT) || 5000;
 app.get("*", async (req, res) => {
     return res.send(`<h1>Running backend on Port : ${port}</h1>`);
   });
+
+ //route
+ app.use("/api", authRoute)
 
   app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
