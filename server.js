@@ -8,6 +8,7 @@ import {protectRoute} from "./src/api/middlewares/protectedRoute.js"
 
 //different route
 import { authRoute } from "./src/api/router/auth.js";
+import {menuRoute} from "./src/api/router/menu.js"
 
 dotenv.config();
 
@@ -22,12 +23,13 @@ app.use(bodyParser.json());
 
 const port = Number(properties.PORT) || 5000;
 
-app.get("*", async (req, res) => {
+app.get("/", async (req, res) => {
     return res.send(`<h1>Running backend on Port : ${port}</h1>`);
   });
 
  //route
  app.use("/api", authRoute)
+ app.use("/api", protectRoute, menuRoute)
 
   app.listen(port, () => {
     console.log(`Server is running on port ${port}`);

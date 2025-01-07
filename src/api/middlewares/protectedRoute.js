@@ -11,7 +11,7 @@ export const protectRoute = async(req,res,next) => {
     })
 
     try {
-        const decode = jwt.verify(token, secret_key); //it will decode the token with the help of secret key and extract info of user which save in payload during generate token.
+        const decode = jwt.verify(token, secret_key);
         req.user = decode 
         next()
     } catch (error) {

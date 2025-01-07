@@ -16,7 +16,7 @@ const menuSchema = new mongoose.Schema({
     },
     availability: {
         type: Boolean,
-        default: True
+        default: true
     }
 
 })

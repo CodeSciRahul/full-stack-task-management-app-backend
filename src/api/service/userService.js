@@ -6,10 +6,10 @@ import properties from "../../config/properties.js";
 
 dotenv.config();
 const SALT_ROUND = properties?.SALT_ROUND;
-const SECRET_KEY = process.env.SECRET_KEY;
+const SECRET_KEY = properties?.SECERT_KEY;
 
 
-  //register User
+//register User
 export const register = async (req, res) => {
     const { username, password } = req.body;
 
