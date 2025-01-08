@@ -9,6 +9,7 @@ import {protectRoute} from "./src/api/middlewares/protectedRoute.js"
 //different route
 import { authRoute } from "./src/api/router/auth.js";
 import {menuRoute} from "./src/api/router/menu.js"
+import {orderRoute} from "./src/api/router/order.js"
 
 dotenv.config();
 
@@ -30,6 +31,7 @@ app.get("/", async (req, res) => {
  //route
  app.use("/api", authRoute)
  app.use("/api", protectRoute, menuRoute)
+ app.use("/api", protectRoute, orderRoute)
 
   app.listen(port, () => {
     console.log(`Server is running on port ${port}`);

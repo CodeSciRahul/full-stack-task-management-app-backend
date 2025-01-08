@@ -19,13 +19,13 @@ const orderSchema = new mongoose.Schema({
         }
       }],
     totalAmount: {
-        type: string,
+        type: Number,
         required: true
     },
     status: {
-        type: string,
+        type: String,
         enum: ['pending', 'completed'],
-        default: pending
+        default: 'pending'
     },
     createdAt: { type: Date, default: Date.now },
 
