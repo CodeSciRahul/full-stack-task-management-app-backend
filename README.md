@@ -84,17 +84,37 @@ The backend is built using **Node.js** and **Express.js** to deliver RESTful API
 
 For any **protected** routes, a valid JWT token must be included in the request header to gain access. This ensures secure access control.
 
-## Example Requests
+# Project Name
 
-### Login
-```bash
-POST /api/login
-Content-Type: application/json
+## 🛡️ Assumptions, Challenges, and Limitations
 
-{
-  "email": "user@example.com",
-  "password": "yourpassword"
-}
+### Assumptions
+- Each user manages their own tasks and orders independently.
+- Authentication tokens are securely stored in the frontend and sent in Authorization headers.
+- Menu categories are predefined (e.g., "Main Course", "Desserts").
+
+### Challenges
+- Properly handling CORS for both development and production environments.
+- Implementing efficient search and pagination for large datasets.
+- Ensuring secure user authentication and data validation.
+
+### Limitations
+- The backend currently does not support role-based access control (e.g., admin vs user).
+- No caching is implemented for frequently accessed endpoints, which might lead to slower response times for large datasets.
+
+## 🐛 Common Errors & Solutions
+
+### 1. MongoDB Connection Error
+- **Error**: Failed to connect to MongoDB
+- **Solution**: Check your `MONGO_URL` in `.env`. Ensure your MongoDB instance is running.
+
+### 2. CORS Policy Error
+- **Error**: Access-Control-Allow-Origin header missing.
+- **Solution**: Verify `corsOptions` in `server.js` includes the frontend URL.
+
+### 3. JWT Authentication Error
+- **Error**: Unauthorized
+- **Solution**: Ensure a valid JWT token is sent in the Authorization header.
 
 ## 🔧 Setup Instructions
 
