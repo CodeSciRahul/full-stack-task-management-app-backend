@@ -1,7 +1,9 @@
 import mongoose from "mongoose";
 
 const connectDB = async(mongoUrl) => {
-    const db_config_object = { useNewUrlParser: true, useUnifiedTopology: true };
+    const db_config_object = { 
+        ssl: true, 
+    };
     mongoose
     .connect(mongoUrl, db_config_object)
     .then(() => {
