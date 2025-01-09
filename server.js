@@ -19,7 +19,14 @@ connectDB(properties.MONGO_URL).catch(err => {
 
 const app = express();
 
-app.use(cors());
+const corsOptions = {
+  origin: ['http://localhost:5173', 'https://full-stack-task-management-app-sigma.vercel.app'],
+  methods: 'GET,POST,PUT,DELETE,OPTIONS',
+  allowedHeaders: 'Content-Type,Authorization',
+};
+
+
+app.use(cors(corsOptions));
 app.use(bodyParser.json());
 
 const port = Number(properties.PORT) || 5000;
