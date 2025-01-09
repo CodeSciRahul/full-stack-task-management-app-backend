@@ -19,14 +19,29 @@ connectDB(properties.MONGO_URL).catch(err => {
 
 const app = express();
 
+// Updated CORS configuration
 const corsOptions = {
-  origin: ['http://localhost:5173', 'https://full-stack-task-management-app-theta.vercel.app', 'https://app.quickbite.com'],
-  methods: 'GET,POST,PUT,DELETE,OPTIONS',
-  allowedHeaders: 'Content-Type,Authorization',
+  origin: (origin, callback) => {
+    const allowedOrigins = [
+      "http://localhost:5173",
+      "https://full-stack-task-management-app-theta.vercel.app",
+      "https://app.quickbite.com",
+    ];
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
 };
 
 
 app.use(cors(corsOptions));
+
+// Preflight requests handler
+app.options("*", cors(corsOptions)); // Handles preflight for all routes
 app.use(bodyParser.json());
 
 const port = Number(properties.PORT) || 5000;
