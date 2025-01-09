@@ -84,8 +84,6 @@ The backend is built using **Node.js** and **Express.js** to deliver RESTful API
 
 For any **protected** routes, a valid JWT token must be included in the request header to gain access. This ensures secure access control.
 
-# Project Name
-
 ## 🛡️ Assumptions, Challenges, and Limitations
 
 ### Assumptions
