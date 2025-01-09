@@ -2,7 +2,8 @@ import {
     menu,
     deleteMenu,
     postMenu,
-    updateMenu 
+    updateMenu,
+    searchMenu 
 } from "../service/menuService.js";
 
 import { Router } from "express";
@@ -13,3 +14,4 @@ menuRoute.get("/menu", menu);
 menuRoute.post("/menu", postMenu);
 menuRoute.put("/menu/:id", updateMenu);
 menuRoute.delete("/menu/:id", deleteMenu);
+menuRoute.get("/menu/search", searchMenu)
