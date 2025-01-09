@@ -20,7 +20,7 @@ connectDB(properties.MONGO_URL).catch(err => {
 const app = express();
 
 const corsOptions = {
-  origin: ['http://localhost:5173', 'https://full-stack-task-management-app-sigma.vercel.app'],
+  origin: ['http://localhost:5173', 'https://full-stack-task-management-app-theta.vercel.app', 'https://app.quickbite.com'],
   methods: 'GET,POST,PUT,DELETE,OPTIONS',
   allowedHeaders: 'Content-Type,Authorization',
 };
