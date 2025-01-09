@@ -8,7 +8,7 @@ const properties = {
     CLIENT_URL: process.env.CLIENT_URL || `http://localhost:5173`,
   
     MONGO_URL:
-      process.env.MONGO_URL || `mongodb://localhost:27017/food-delivery`,
+      process.env.MONGO_URL || `mongodb+srv://rahulkumarkudra2004:Vj1gMKxRahvnrXta@cluster0.rznwc.mongodb.net/food-delivery?retryWrites=true&w=majority&appName=Cluster0`,
     
     SALT_ROUND: Number(process.env.SALT_ROUND) || 10,
 
