@@ -135,4 +135,4 @@ SECERT_KEY=your-jwt-secret-key
 
 ### **4. Start Server
 ```bash
-npm start
+node server.js
