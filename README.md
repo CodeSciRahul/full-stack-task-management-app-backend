@@ -132,6 +132,7 @@ Create a .env file in the root directory and add the following environment varia
 PORT=5000
 MONGO_URL=your-mongo-db-connection-string
 SECERT_KEY=your-jwt-secret-key
+HASH=10
 
 ### **4. Start Server
 ```bash
